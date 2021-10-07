@@ -11,6 +11,25 @@ func rgb2xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
+func tristimulus2Chromaticity(r1, g1, b1 float64) (r, g, b float64) {
+	r = r1 / (r1 + g1 + b1)
+	g = g1 / (r1 + g1 + b1)
+	b = b1 / (r1 + g1 + b1)
+	return
+}
+
+func chromaticity2Tristimulus(r, g, b float64) (r1, g1, b1 float64) {
+	// TODO
+	return 0, 0, 0
+}
+
+//func tristimulus2ChromaticityXYZ(x1, y1, z1 float64) (x, y, z float64) {
+//	v := y1 // refer to CIE
+//
+//
+//	return
+//}
+
 func xyz2rgb(x, y, _ float64) (r, g, b float64) {
 	/*
 		|X|   |b11 b12 b13| |R|

@@ -39,10 +39,10 @@ func saveRGB(data Data, filename string) error {
 		return err
 	}
 	for i := 0; i < len(data[0].Values); i++ {
-		lambda := data[0].Values[i].X
+		λ := data[0].Values[i].X
 		x, y, z := data[0].Values[i].Y, data[1].Values[i].Y, data[2].Values[i].Y
 		r, g, b := xyz2rgb(x, y, z)
-		if _, err := fmt.Fprintf(f, "%.5f %.5f %.5f %.5f\n", lambda, r, g, b); err != nil {
+		if _, err := fmt.Fprintf(f, "%.5f %.5f %.5f %.5f\n", λ, r, g, b); err != nil {
 			return err
 		}
 	}
@@ -74,9 +74,9 @@ func load(filename string) (Data, error) {
 			}
 			values[i] = f
 		}
-		lambda := values[0]
+		λ := values[0]
 		for i := 0; i+1 < len(values); i++ {
-			data[i].Values = append(data[i].Values, Value{X: lambda, Y: values[i+1]})
+			data[i].Values = append(data[i].Values, Value{X: λ, Y: values[i+1]})
 		}
 	}
 	return data, nil
